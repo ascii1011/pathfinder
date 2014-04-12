@@ -31,6 +31,9 @@ MEDIA_ROOT = ''
 MEDIA_URL = ''
 STATIC_ROOT = ''
 STATIC_URL = '/static/'
+CSS_URL = 'css/'
+JS_URL = 'js/'
+PLUGINS_URL = 'plugins/'
 
 STATICFILES_DIRS = ()
 
@@ -70,6 +73,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'campaign',
+    'source',
+    'article',
+    'traceroute',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -105,6 +112,21 @@ try:
     from pathfinder.local_settings import *
 except ImportError:
     pass
+
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'src'),
+)
+
+FIXTURE_DIRS = (
+   #os.path.join(BASE_DIR, 'fixtures'),
+)
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+)
+
 
 TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
                                "django.core.context_processors.debug",
