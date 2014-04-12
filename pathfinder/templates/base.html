@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pathfinder{% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <link rel="stylesheet" href="{{ CSS_URL }}base.css">
+	<style type="text/css">
+	  {% block css %}{% endblock %}
+	</style>
+	{% block head %}{% endblock %}
+    </head>
+    <body>
+      {% block body %}
+        <div id="container">
+            <div id="nav">
+            {% include "left_navigation.html" %}
+            </div>
+            <div id="main">
+                <div class="page-title"></div>
+                <div class="margin-container">
+		  {% block content %}{% endblock %}
+                </div>{# <!-- EOF margin-continer --> #}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <script type="text/javascript" src="{{ JS_URL }}base.js"></script>
+        <script type="text/javascript">{% block javascript %}{% endblock %}</script>
+     {% endblock %}
+    </body>
+</html>

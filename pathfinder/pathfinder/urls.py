@@ -1,17 +1,15 @@
 from django.conf.urls import patterns, include, url
+from django.contrib import admin
+admin.autodiscover()
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from pathfinder.views import dashboard
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'pathfinder.views.home', name='home'),
-    # url(r'^pathfinder/', include('pathfinder.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', dashboard.as_view(), name='home'),
+    #url(r'^campaign/', include('campaign.urls')),
+    #url(r'^source/', include('source.urls')),
+    #url(r'^article/', include('article.urls')),
+    #url(r'^traceroute/', include('traceroute.urls')),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 )

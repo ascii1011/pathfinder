@@ -64,7 +64,9 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'pathfinder.urls'
 WSGI_APPLICATION = 'pathfinder.wsgi.application'
 
-TEMPLATE_DIRS = ()
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -77,10 +79,8 @@ INSTALLED_APPS = (
     'source',
     'article',
     'traceroute',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
 )
 
 LOGGING = {
