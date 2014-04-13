@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1>Campaign: {{ campaign.name }}</h1> 
+
+<table>
+{{ campaign.as_table }}
+</table>
+
+{% endblock %}

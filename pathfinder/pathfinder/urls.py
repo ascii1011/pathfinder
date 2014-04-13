@@ -6,7 +6,7 @@ from pathfinder.views import dashboard
 
 urlpatterns = patterns('',
     url(r'^$', dashboard.as_view(), name='home'),
-    #url(r'^campaign/', include('campaign.urls')),
+    url(r'^campaign/', include('campaign.urls')),
     #url(r'^source/', include('source.urls')),
     #url(r'^article/', include('article.urls')),
     #url(r'^traceroute/', include('traceroute.urls')),
