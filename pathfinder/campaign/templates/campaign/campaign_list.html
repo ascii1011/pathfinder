@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+<ul>
+{% for obj in campaign_list %}
+    <li><a href="{{ obj.slug }}/">{{ obj.name }}</a></li>
+{% endfor %}
+</ul>
+<a href="{% url 'campaign-add' %}">Add</a>
+{% endblock %}

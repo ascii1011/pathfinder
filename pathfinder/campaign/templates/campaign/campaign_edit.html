@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block content %}
+<form method="post" action="{% if slug %}
+			    {% url 'campaign-edit' slug %}
+			    {% else %}
+			    {% url 'campaign-add' %}
+			    {% endif %}">
+{% csrf_token %}
+{{ campaign_form.as_p }}
+<button type="submit">Submit</button>
+</form>
+
+<a href="{% url "campaign-list" %}">back to list</a>
+
+{% endblock %}

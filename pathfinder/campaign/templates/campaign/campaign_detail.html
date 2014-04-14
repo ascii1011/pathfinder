@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1>Campaign: {{ campaign.name }}</h1> 
+
+<table width="400" border="1">
+<tr>
+  <td>Description:</td>
+  <td>{{ campaign.desc }}</td>
+</tr>
+
+<tr>
+  <td>Seed:</td>
+  <td>{{ campaign.seed }}</td>
+</tr>
+
+<tr>
+  <td>On/Off:</td>
+  <td>{{ campaign.onoff }}</td>
+</tr>
+
+<tr>
+  <td>Status:</td>
+  <td>{{ campaign.status }}</td>
+</tr>
+</table>
+
+<a href="{% url 'campaign-edit' campaign.slug %}">Edit</a>
+{% endblock %}
