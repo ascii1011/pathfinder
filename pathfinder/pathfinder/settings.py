@@ -34,15 +34,12 @@ STATIC_URL = '/static/'
 CSS_URL = 'css/'
 JS_URL = 'js/'
 PLUGINS_URL = 'plugins/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'src'),
-)
+SOUND_URL = 'sound/'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 SECRET_KEY = '1u*bqpcm51)&!o!egb-q1_)u7!by$%6o9#l*7^8!%%w0qpqk$+'

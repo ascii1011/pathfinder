@@ -3,10 +3,10 @@
 
 {% block content %}
 
-<a href="{% url 'article-add' %}">Add New Article</a>
+<a href="{% url 'traceroute-add' %}">Add New Traceroute</a>
 <br>
 <ul>
-{% for obj in article_list %}
+{% for obj in traceroute_list %}
     <li><a href="{{ obj.slug }}/">{{ obj.slug }}</a></li>
 {% endfor %}
 </ul>

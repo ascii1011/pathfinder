@@ -1,0 +1,25 @@
+{% extends "null_index.html" %}
+
+{% block content %}
+
+<a href="{% url 'traceroute-list' %}">back to list</a><br>
+
+<form method="post" action="{% if traceroute.slug %}
+			    {% url 'traceroute-edit' traceroute.slug %}
+			    {% else %}
+			    {% url 'traceroute-add' %}
+			    {% endif %}">
+{% csrf_token %}
+
+<table id="traceroute_form">
+{{ form.as_table }}
+</table>
+<br>
+<button type="submit">{% if traceroute.slug %}
+			    Update
+			    {% else %}
+                            Create
+			    {% endif %}</button>
+</form>
+
+{% endblock %}

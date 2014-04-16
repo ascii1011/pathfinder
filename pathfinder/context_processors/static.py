@@ -7,4 +7,5 @@ def paths(request):
         'CSS_URL': "%scss/" % (settings.STATIC_URL),
         'JS_URL': "%sjs/" % (settings.STATIC_URL),
         'PLUGINS_URL': '%splugins/' % settings.STATIC_URL,
+        'SOUND_URL': '%ssound/' % settings.STATIC_URL,
         }

@@ -1,0 +1,22 @@
+{% extends "null_index.html" %}
+
+{% block content %}
+<div class="app_detail_heading">
+  Traceroute: 
+  <a href="{% url 'traceroute-edit' traceroute.slug %}">(edit) {{ traceroute.slug }}</a>
+</div> 
+<br>
+
+<table width="400" border="0">
+<tr>
+  <td class="app_detail_label">Results: </td>
+  <td class="app_detail_value">{{ traceroute.result }}</td>
+</tr>
+
+<tr>
+  <td class="app_detail_label">Seed Blob: </td>
+  <td class="app_detail_value">{{ traceroute.seedblob }}</td>
+</tr>
+</table>
+
+{% endblock %}

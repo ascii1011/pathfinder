@@ -1,5 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from pathfinder.views import JSONResponseMixin
 from .models import Campaign
 
 class CampaignUpdate(UpdateView):
@@ -24,4 +25,10 @@ class CampaignList(ListView):
 class CampaignDetail(DetailView):
     model = Campaign
     slug_field = 'slug'
+
+
+class CampList(JSONResponseMixin, ListView):
+    model = Campaign
+    http_method_names = ['get',]
+
 

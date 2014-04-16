@@ -1,14 +1,22 @@
-{% extends "index.html" %}
+{% extends "null_index.html" %}
+
+
+{% block javascript %}
+ {% include 'js/campaign.js' %}
+{% endblock %}
 
 
 {% block content %}
 
 <a href="{% url 'campaign-add' %}">Add New Campaign</a>
 <br>
-<ul>
+<ul id="camp_list">
+
+{% comment %}
 {% for obj in campaign_list %}
     <li><a href="{{ obj.slug }}/">{{ obj.name }}</a></li>
 {% endfor %}
+{% endcomment %}
 </ul>
 
 
