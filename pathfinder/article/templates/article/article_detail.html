@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1>Campaign Slug: {{ article.slug }}</h1> 
+
+<table width="400" border="1">
+<tr>
+  <td>Article Content:</td>
+  <td>{{ article.content }}</td>
+</tr>
+
+<a href="{% url 'article-edit' article.slug %}">Edit</a>
+{% endblock %}

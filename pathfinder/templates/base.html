@@ -14,15 +14,17 @@
     <body>
       {% block body %}
         <div id="container">
-            <div id="nav">
+
+          <div id="title">PathFinder</div>
+
+          <div id="nav">
             {% include "left_navigation.html" %}
-            </div>
-            <div id="main">
-                <div class="page-title"></div>
-                <div class="margin-container">
-		  {% block content %}{% endblock %}
-                </div>{# <!-- EOF margin-continer --> #}
-            </div>
+          </div>
+          
+          <div id="content">
+	    {% block content %}{% endblock %}
+          </div>{# <!-- EOF margin-continer --> #}
+
             <div class="clearfix"></div>
         </div>
 

@@ -1,0 +1,31 @@
+
+#title {
+    width: 736px;
+    height: 60px;
+    border: thin solid;
+    margin-bottom: 3px;
+}
+
+
+#nav {
+    float: left;
+    width: 100px;
+    border: thin solid;
+    height: 410px;
+    padding: 5px;
+}
+
+#content {
+    margin-left: 4px;
+    float: left;
+    width: 600px;
+    border: thin solid;
+    min-height: 400px;
+    padding: 10px;
+}
+
+#campaign_form {
+    text-align: left;
+    align-vertical: text-top;
+}
+

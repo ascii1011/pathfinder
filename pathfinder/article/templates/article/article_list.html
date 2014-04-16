@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+
+<a href="{% url 'article-add' %}">Add New Article</a>
+<br>
+<ul>
+{% for obj in article_list %}
+    <li><a href="{{ obj.slug }}/">{{ obj.slug }}</a></li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

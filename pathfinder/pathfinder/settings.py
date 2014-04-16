@@ -35,12 +35,14 @@ CSS_URL = 'css/'
 JS_URL = 'js/'
 PLUGINS_URL = 'plugins/'
 
-STATICFILES_DIRS = ()
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'src'),
+)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 SECRET_KEY = '1u*bqpcm51)&!o!egb-q1_)u7!by$%6o9#l*7^8!%%w0qpqk$+'
@@ -66,6 +68,7 @@ WSGI_APPLICATION = 'pathfinder.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
+    os.path.join(BASE_DIR, 'src'),
 )
 
 INSTALLED_APPS = (
@@ -75,6 +78,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pathfinder',
     'campaign',
     'source',
     'article',
@@ -127,6 +131,7 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
                                "django.core.context_processors.debug",
@@ -134,5 +139,6 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
                                "django.core.context_processors.media",
                                "django.core.context_processors.static",
                                "django.core.context_processors.tz",
-                               "django.contrib.messages.context_processors.messages",)
+                               "django.contrib.messages.context_processors.messages",
+                               'context_processors.static.paths',)
 

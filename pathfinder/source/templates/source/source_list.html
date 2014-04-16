@@ -3,10 +3,10 @@
 
 {% block content %}
 
-<a href="{% url 'campaign-add' %}">Add New Campaign</a>
+<a href="{% url 'source-add' %}">Add New Source</a>
 <br>
 <ul>
-{% for obj in campaign_list %}
+{% for obj in source_list %}
     <li><a href="{{ obj.slug }}/">{{ obj.name }}</a></li>
 {% endfor %}
 </ul>

@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1>Source: {{ source.name }}</h1> 
+
+<table width="400" border="1">
+<tr>
+  <td>Description:</td>
+  <td>{{ source.desc }}</td>
+</tr>
+
+<tr>
+  <td>Location:</td>
+  <td>{{ source.loc }}</td>
+</tr>
+
+<tr>
+  <td>Location Type:</td>
+  <td>{{ source.tipe }}</td>
+</tr>
+</table>
+
+<a href="{% url 'source-edit' source.slug %}">Edit</a>
+{% endblock %}

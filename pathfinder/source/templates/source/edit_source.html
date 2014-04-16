@@ -2,20 +2,20 @@
 
 {% block content %}
 
-<a href="{% url 'campaign-list' %}">back to list</a><br>
+<a href="{% url 'source-list' %}">back to list</a><br>
 
-<form method="post" action="{% if campaign.slug %}
-			    {% url 'campaign-edit' campaign.slug %}
+<form method="post" action="{% if source.slug %}
+			    {% url 'source-edit' source.slug %}
 			    {% else %}
-			    {% url 'campaign-add' %}
+			    {% url 'source-add' %}
 			    {% endif %}">
 {% csrf_token %}
 
-<table id="campaign_form">
+<table id="source_form">
 {{ form.as_table }}
 </table>
 <br>
-<button type="submit">{% if campaign.slug %}
+<button type="submit">{% if source.slug %}
 			    Update
 			    {% else %}
                             Create
