@@ -47,4 +47,17 @@
     text-align: left;
     align-vertical: text-top;
 }
+#camp_list_div {
+    border: thin solid;
+    width: 100%;
+}
+#camp_list_div td {
+    border: thin solid;
+}
 
+.removeLink{
+    padding-left: 4px;
+}
+.onoffLink{
+    padding-left: 4px;
+}
