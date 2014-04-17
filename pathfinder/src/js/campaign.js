@@ -2,11 +2,10 @@
 
 var def_campaign_list = function() {
     $.ajax({ 
-        type: 'GET', 
-        url: '/campaign/list/', 
-        data: {}, 
-        dataType: 'json',
+        type: 'GET', url: '/campaign/list/', 
+        data: {}, dataType: 'json',
         success: function (data) { 
+            $('#camp_list_div').empty();
             $.each(data, function(index, element) {
 
                 var onoff = '';
@@ -15,15 +14,22 @@ var def_campaign_list = function() {
                 } else {
                     onoff = 'Start';
                 }
-                var btn_campaign = $('<button class="campaignLink">'+element.name+'</button>');
                 var btn_remove = $('<button class="removeLink">Remove</button>');
+                btn_remove.click(function() {
+                    $.ajax( "{% url 'campaign-del' %}", {
+                        data: {slug:element.slug},
+                        type: 'POST', dataType: 'json',
+                        success: function(data, status, xhr) {
+                            console.log('success');
+                            console.log( 'data: '+data );
+                            console.log( 'status: '+status );
+                            def_campaign_list();
+                            }
+                        });
+                    });
+                        
                 var btn_onoff = $('<button class="onoffLink">'+onoff+'</button>');
 
-                $('#camp_list').append(
-                    $('<li>').append( 
-                        $('<a>').attr('href',element.slug+'/').text(element.name)
-                    )
-                );
                 $('#camp_list_div').append(
                     $('<tr>').append(
                         $('<td>').append(

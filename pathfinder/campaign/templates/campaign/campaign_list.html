@@ -11,14 +11,6 @@
 
 <a href="{% url 'campaign-add' %}">Add New Campaign</a>
 <br>
-<ul id="camp_list">
-
-{% comment %}
-{% for obj in campaign_list %}
-    <li><a href="{{ obj.slug }}/">{{ obj.name }}</a></li>
-{% endfor %}
-{% endcomment %}
-</ul>
 
 <table id="camp_list_div">
   <tr><th>Campaign</th><th>Options</th><th>Status</th></tr>
