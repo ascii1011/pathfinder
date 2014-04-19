@@ -17,12 +17,9 @@ var def_campaign_list = function() {
                 var btn_remove = $('<button class="removeLink">Remove</button>');
                 btn_remove.click(function() {
                     $.ajax( "{% url 'campaign-del' %}", {
-                        data: {slug:element.slug},
+                        data: {id:element.id},
                         type: 'POST', dataType: 'json',
                         success: function(data, status, xhr) {
-                            console.log('success');
-                            console.log( 'data: '+data );
-                            console.log( 'status: '+status );
                             def_campaign_list();
                             }
                         });

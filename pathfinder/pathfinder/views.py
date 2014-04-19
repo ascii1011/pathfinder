@@ -28,7 +28,7 @@ class dashboard(TemplateView):
 
 
 
-class JSONResponseMixin(object):
+class JSONListResponseMixin(object):
     def render_to_response(self, context):
         "Returns a JSON response containing 'context' as payload"
         return self.get_json_response(self.convert_context_to_json(context))
@@ -46,7 +46,6 @@ class JSONResponseMixin(object):
         # objects -- such as Django model instances or querysets
         # -- can be serialized as JSON.
 
-        from pprint import pprint
         _objs = list()
         for _obj in context['object_list']:
             obj = dict()
@@ -59,9 +58,8 @@ class JSONResponseMixin(object):
             for f in _obj._meta.fields:
                 if fields and f.name in fields:
                     obj.update( {'%s' % str(f.name): '%s' % str(getattr(_obj, f.name)) })
-                    getmethod = 'get_%s_display' % f.name
                     try:
-                        t = getattr(_obj, getmethod)
+                        t = getattr(_obj, 'get_%s_display' % f.name)
                         obj.update( { '%s_display' % str(f.name): '%s' % str(t()) } )
                     except:
                         pass
