@@ -49,27 +49,15 @@ class JSONResponseMixin(object):
         _objs = list()
         for _obj in context['object_list']:
             obj = dict()
-            from pprint import pprint
-            #pprint( help(_obj._meta) )
-            #_objs.append( model_to_dict(_obj) )
             for fieldobj in _obj._meta.fields:
-                #print {fieldobj.name: getattr(_obj, fieldobj.name) }
                 obj.update( {'%s' % str(fieldobj.name): '%s' % str(getattr(_obj, fieldobj.name)) })
                 getmethod = 'get_%s_display' % fieldobj.name
-                #print 'getmeth1: ', getmethod
                 try:
-                    #pprint( dir( getattr(_obj, getmethod) ) )
-                    #print 'getattr: ', str( getattr(_obj, getmethod).im_self() )
                     t = getattr(_obj, getmethod)
-                    print t()
-                    obj.update( {'%s_display' % str(fieldobj.name): 
-                                 '%s' % str( t() ) } )
-                    print 'getmeth2: ', str( obj['%s_display' % str(fieldobj.name)] )
+                    obj.update( { '%s_display' % str(fieldobj.name): '%s' % str(t()) } )
                 except:
                     pass
-            #print 'stats >>', str(_obj.get_status_display() )
             
-
             _objs.append( obj )
 
         return json.dumps(_objs)
