@@ -42,7 +42,7 @@ var def_campaign_list = function() {
                             btn_onoff
                         )
                     ).append(
-                        $('<td>').text(element.status)
+                        $('<td>').text(element.status_display+'('+element.status+')')
                     )
                     
                 );
