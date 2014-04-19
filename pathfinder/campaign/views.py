@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseNotAllowed
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.views.decorators.csrf import requires_csrf_token, csrf_exempt
 from pathfinder.views import JSONResponseMixin
+from .forms import ListForm
 from .models import Campaign
 
 class CampaignUpdate(UpdateView):
@@ -33,6 +34,8 @@ class CampaignDetail(DetailView):
 class CampList(JSONResponseMixin, ListView):
     model = Campaign
     http_method_names = ['get',]
+    #form_class = ListForm
+    fields = ['name', 'slug', 'status',]
 
 @csrf_exempt
 def CampaignDelete(request):

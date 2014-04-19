@@ -45,18 +45,26 @@ class JSONResponseMixin(object):
         # to do much more complex handling to ensure that arbitrary
         # objects -- such as Django model instances or querysets
         # -- can be serialized as JSON.
+
         from pprint import pprint
         _objs = list()
         for _obj in context['object_list']:
             obj = dict()
-            for fieldobj in _obj._meta.fields:
-                obj.update( {'%s' % str(fieldobj.name): '%s' % str(getattr(_obj, fieldobj.name)) })
-                getmethod = 'get_%s_display' % fieldobj.name
-                try:
-                    t = getattr(_obj, getmethod)
-                    obj.update( { '%s_display' % str(fieldobj.name): '%s' % str(t()) } )
-                except:
-                    pass
+            
+            try:
+                fields = self.fields
+            except:
+                fields = []
+
+            for f in _obj._meta.fields:
+                if fields and f.name in fields:
+                    obj.update( {'%s' % str(f.name): '%s' % str(getattr(_obj, f.name)) })
+                    getmethod = 'get_%s_display' % f.name
+                    try:
+                        t = getattr(_obj, getmethod)
+                        obj.update( { '%s_display' % str(f.name): '%s' % str(t()) } )
+                    except:
+                        pass
             
             _objs.append( obj )
 
