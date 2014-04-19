@@ -2,7 +2,7 @@ import json
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
-from django.views.decorators.csrf import requires_csrf_token, csrf_exempt
+from django.views.decorators.csrf import requires_csrf_token, csrf_exempt, ensure_csrf_cookie
 from pathfinder.views import JSONListResponseMixin
 from .forms import ListForm
 from .models import Campaign
@@ -36,7 +36,7 @@ class CampList(JSONListResponseMixin, ListView):
     http_method_names = ['get',]
     fields = ['name', 'slug', 'status', 'id',]
 
-@csrf_exempt
+
 def CampaignDelete(request):
     data = {'result': 0}
     if request.method == 'POST':

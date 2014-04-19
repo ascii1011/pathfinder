@@ -21,7 +21,8 @@ var def_campaign_list = function() {
                         type: 'POST', dataType: 'json',
                         success: function(data, status, xhr) {
                             def_campaign_list();
-                            }
+                            },
+                        headers: {'X-CSRFToken': $.cookie('csrftoken')}
                         });
                     });
                         
